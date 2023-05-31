@@ -20,6 +20,7 @@ export class Show extends Component {
           name: "savita",
         },
       ],
+      name: "",
     };
     console.log("im first");
   }
