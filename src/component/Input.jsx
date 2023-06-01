@@ -11,7 +11,8 @@ export class Input extends Component {
     this.setState((state) => (state.name = e.target.value));
   };
   handleClick = () => {
-    console.log(this.state.name);
+    this.props.change(this.state.name);
+    this.setState({ name: "" });
   };
   handleClick2(e) {
     console.log(e.target.value);

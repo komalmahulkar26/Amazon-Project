@@ -24,8 +24,11 @@ export class Show extends Component {
     };
     console.log("im first");
   }
-  handleClick = () => {
-    this.setState();
+  handleClick = (value) => {
+    this.setState((state) => {
+      state.data = [...state.data, { id: "4543", name: value }];
+    });
+    console.log(this.state.data);
   };
   componentDidMount() {
     console.log("what my no");
@@ -38,11 +41,11 @@ export class Show extends Component {
       <div className="container">
         <h1>Show</h1>
         <p>Your Name is </p>
-        {data.map((item) => (
+        {this.state.data.map((item) => (
           <Card key={item.id} id={item.id} name={item.name} />
         ))}
 
-        <Input />
+        <Input change={this.handleClick} />
       </div>
     );
   }
