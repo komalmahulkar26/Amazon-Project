@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from "react";
 // import { v4 as uuidv4 } from 'uuid';
 
-function Todo() {
+function Todo({ setIsLogged }) {
   const [count, setCount] = useState(0);
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
   const handleClick = () => {
     setData([...data, { id: count, name: value }]);
-    localStorage.setItem(
-      "todo Item",
-      JSON.stringify([...data, { id: count, name: value }])
-    );
+    localStorage.setItem("todo Item", JSON.stringify([...data, { id: count, name: value }]));
     setValue("");
     setCount(count + 1);
   };
   const handleChange = (e) => {
     setValue(e.target.value);
   };
+  const handleLogOut = () => {
+    localStorage.setItem("isLogged", false);
+    setIsLogged(false);
+  };
+  const handleClear = () => {
+    localStorage.removeItem("todo Item");
+    setData([]);
+  };
   useEffect(() => {
     const todo = localStorage.getItem("todo Item");
-    const lg = JSON.parse(todo).length;
-    setCount(lg);
     if (todo) {
+      const lg = JSON.parse(todo).length;
+      setCount(lg);
       setData(JSON.parse(todo));
     }
   }, []);
@@ -29,6 +34,8 @@ function Todo() {
   return (
     <div>
       <h1>Todo Component</h1>
+      <button onClick={handleLogOut}>LogOut</button>
+      <button onClick={handleClear}>Clear Data</button>
       {data.map((item, index) => (
         <div
           key={index}
