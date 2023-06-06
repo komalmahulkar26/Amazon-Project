@@ -1,24 +1,14 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import Login from "./component/Login";
-import Todo from "./component/Todo";
-
+import { useState } from "react";
+import DashBoard from "./component/DashBoard";
+import LeftNav from "./component/LeftNav";
 function App() {
-  const [isLogged, setIsLogged] = useState(false);
-  useEffect(() => {
-    setIsLogged(JSON.parse(localStorage.getItem("isLogged")));
-    console.log("hello");
-  }, []);
-  const handleLogOut = () => {
-    localStorage.setItem("isLogged", false);
-    setIsLogged(false);
-  };
+  const [user, setUser] = useState("mujib");
   return (
-    <div>
-      <button onClick={handleLogOut}>LogOut</button>
-      {isLogged ? <Todo setIsLogged={setIsLogged} /> : <Login isLogged={isLogged} setIsLogged={setIsLogged} />}
-
-      {/* <Todo /> */}
+    <div className="app">
+      {/* Left Nav */}
+      <LeftNav user={user} />
+      {/* Dashboard */}
+      <DashBoard />
     </div>
   );
 }
