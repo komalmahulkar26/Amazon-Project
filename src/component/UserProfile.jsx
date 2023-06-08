@@ -1,10 +1,10 @@
 import React from "react";
 
-function UserProfile() {
+function UserProfile({ user, setUser }) {
   return (
     <div>
       <label htmlFor="">Useranem</label>
-      <input type="text" />
+      <input type="text" value={user} onChange={(e) => setUser(e.target.value)} />
     </div>
   );
 }

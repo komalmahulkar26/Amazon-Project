@@ -126,3 +126,13 @@ input:active {
   display: flex;
   justify-content: space-between;
 }
+.productList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 5px;
+}
