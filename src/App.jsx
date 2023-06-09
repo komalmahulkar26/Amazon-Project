@@ -11,6 +11,8 @@ function App() {
       {/* Left Nav */}
       <LeftNav user={user} state={state} setState={setState} />
 
+      {/* SamleI ahve Creaed this for Gihub  demo  */}
+
       {/* Dashboard */}
       <DashBoard cart={cart} setCart={setCart} user={user} setUser={setUser} state={state} setState={setState} />
     </div>
