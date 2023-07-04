@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DashBoard from "./component/DashBoard";
-import LeftNav from "./component/LeftNav";
+import LeftNav from "./component/LeftNav"
 function App() {
   const [user, setUser] = useState("mujib");
   const [cart, setCart] = useState(0);
